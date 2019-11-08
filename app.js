@@ -45,9 +45,14 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-mongoose.connect("mongodb://localhost:27017/yelpcamp", {
+mongoose.connect("mongodb+srv://devops:devops@cluster0-qmm86.mongodb.net/test?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useCreateIndex: true,
+}).then(() => {
+    console.log("database connected");
+}).catch(err => {
+    console.log("error:", err.message);
 });
 
 var port = process.env.PORT || 3000;
