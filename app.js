@@ -45,6 +45,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// mongodb+srv://devops:EfTBWvgG7BN3IXo4@cluster0-qmm86.mongodb.net/test?retryWrites=true&w=majority
 var url = process.env.DBURL || "mongodb://localhost/yelpcamp";
 mongoose.connect(url, {
     useNewUrlParser: true,
